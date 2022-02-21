@@ -29,6 +29,12 @@ MonoBehaviour:
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: a28fe8c0c77077c4c93c4f31c12c9e20
+    m_Address: Assets/Scenes/TILES/prefab/Plane 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: df0b878214c4c9b4094a97be4af6dc71, type: 2}
   m_SchemaSet:

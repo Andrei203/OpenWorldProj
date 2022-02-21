@@ -14,7 +14,7 @@ public class TerrainTiles : MonoBehaviour
     }
 
     private int currentLOD = -1;
-    public AssetReference assetReference;
+    //public AssetReference assetReference;
     public List<LODInfo> LODs;
 
     private AsyncOperationHandle<GameObject> _operationHandle;
@@ -29,7 +29,6 @@ public class TerrainTiles : MonoBehaviour
     {
         if (lod != currentLOD)
         {
-            Debug.Log(lod);
             currentLOD = lod;
             LoadLOD(lod);
         }

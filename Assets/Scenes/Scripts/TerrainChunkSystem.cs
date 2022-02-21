@@ -54,7 +54,7 @@ public class TerrainChunkSystem : MonoBehaviour
         foreach (TerrainTiles tile in tiles)
         {
             float distance = Vector3.Distance(mainCamera.transform.position, tile.transform.position);
-            tile.UpdateLOD(distance < tileRange ? distance < tileRange / 2.0F ? 0 : 1 : -1);
+            tile.UpdateLOD(distance < tileRange ? distance < tileRange * 0.66F ? distance < tileRange * 0.33F ? 0 : 1 : 2 : -1);
             /*bool inRange = Vector3.Distance(mainCamera.transform.position, tile.transform.position) < tileRange;
             if (!tile.enabled && inRange)
             {
