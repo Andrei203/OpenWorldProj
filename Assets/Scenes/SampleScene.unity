@@ -6659,7 +6659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 133d686db78c98747863568ab31f1edd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directoryPath: Assets\Objects\teacup.obj
+  directoryPath: Assets\Objects\cow.obj
   isLoaded: 0
 --- !u!4 &1823868851
 Transform:
