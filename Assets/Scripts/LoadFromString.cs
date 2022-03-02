@@ -6,9 +6,10 @@ using System.IO;
 
 public class LoadFromString : MonoBehaviour
 {
-    public MeshFilter loadTo;
+    public MeshFilter meshFilter;
+    public MeshCollider meshCollider;
     public string file = "cow.obj";
-
+    
     public int currentLOD = -1;
     /*private void Start()
     {
@@ -72,8 +73,8 @@ public class LoadFromString : MonoBehaviour
         mesh.vertices = vertices.ToArray();
         mesh.triangles = indices.ToArray();
         mesh.RecalculateNormals();
-        loadTo.sharedMesh = mesh;
-
+        meshFilter.sharedMesh = mesh;
+        meshCollider.sharedMesh = mesh;
         reader.Close();
     }
 
@@ -81,8 +82,9 @@ public class LoadFromString : MonoBehaviour
     public void Unload()
     {
         //Mesh mesh = loadTo.sharedMesh;
-        loadTo.sharedMesh = null;
+        meshFilter.sharedMesh = null;
         //Resources.UnloadAsset(mesh);
+        meshCollider.sharedMesh = null;
     }
 
     public List<int> Triangulate(List<int> _indices)

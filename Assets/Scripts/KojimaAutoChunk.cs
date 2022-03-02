@@ -18,7 +18,6 @@ public class KojimaAutoChunk : MonoBehaviour
                 LoadFromString go = Instantiate(prefab, new Vector3(y * chunkSize.x, 0.0F, x * chunkSize.y), Quaternion.identity,
                     transform);
                 go.file = "kojima_" + x + "-" + y + ".obj";
-                go.Load();
             }
         }
     }
