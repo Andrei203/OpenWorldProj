@@ -8,10 +8,24 @@ public class LoadFromString : MonoBehaviour
 {
     public MeshFilter loadTo;
     public string file = "cow.obj";
-    private void Start()
+
+    public int currentLOD = -1;
+    /*private void Start()
     {
         ReadString();
+    }*/
+    public void UpdateLOD(int lod)
+    {
+        if (lod != currentLOD)
+        {
+            currentLOD = lod;
+            if (currentLOD >= 0)
+                Load();
+            else
+                Unload();
+        }
     }
+    
     public void WriteString()
     {
         string path = Application.streamingAssetsPath + "/" + file;
@@ -26,7 +40,8 @@ public class LoadFromString : MonoBehaviour
         reader.Close();
     }
 
-    public void ReadString()
+    [ContextMenu("Load OBJ")]
+    public void Load()
     {
         string path = Application.streamingAssetsPath + "/" + file;
 
@@ -44,14 +59,15 @@ public class LoadFromString : MonoBehaviour
                     vertices.Add(vertex);
                     break;
                 case "f": // Index
+                    List<int> theseIndexes = new List<int>();
                     for (int i = 1; i < split.Length; i++)
                     {
-                        indices.Add(int.Parse(split[i]) - 1);
+                        theseIndexes.Add(int.Parse(split[i].Split('/')[0]) - 1);
                     }
+                    indices.AddRange(Triangulate(theseIndexes));
                     break;
             }
         }
-        Debug.Log($"{vertices.Capacity} vertices loaded");
         Mesh mesh = new Mesh();
         mesh.vertices = vertices.ToArray();
         mesh.triangles = indices.ToArray();
@@ -59,6 +75,29 @@ public class LoadFromString : MonoBehaviour
         loadTo.sharedMesh = mesh;
 
         reader.Close();
+    }
+
+    [ContextMenu("Unload OBJ")]
+    public void Unload()
+    {
+        //Mesh mesh = loadTo.sharedMesh;
+        loadTo.sharedMesh = null;
+        //Resources.UnloadAsset(mesh);
+    }
+
+    public List<int> Triangulate(List<int> _indices)
+    {
+        List<int> triangulated = new List<int>();
+        for (int i = 2; i < _indices.Count; i++)
+        {
+            triangulated.AddRange(new []
+            {
+                _indices[0],
+                _indices[i-1],
+                _indices[i]
+            });
+        }
+        return triangulated;
     }
 
 }
