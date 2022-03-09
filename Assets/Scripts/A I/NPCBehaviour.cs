@@ -10,7 +10,7 @@ public class NPCBehaviour : MonoBehaviour
     public GameObject player; 
     
     private float targetDistance;
-    public float setTravelDistance = 10.0f;
+    public float chaseRange;
     public float followSpeed;
 
     private RaycastHit _shot;
@@ -22,7 +22,7 @@ public class NPCBehaviour : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out _shot))
         {
             targetDistance = _shot.distance;
-            if (targetDistance >= setTravelDistance)
+            if (targetDistance <= chaseRange)
             {
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, followSpeed * Time.deltaTime);
             }

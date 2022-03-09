@@ -4841,7 +4841,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973309724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 518, z: -13364}
+  m_LocalPosition: {x: 0, y: 518, z: 19300}
   m_LocalScale: {x: 500, y: 500, z: 500}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4860,9 +4860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1630318346002394}
-  targetDistance: 0
-  setTravelDistance: 800
-  followSpeed: 1000
+  chaseRange: 15000
+  followSpeed: 500
 --- !u!1 &973723180
 GameObject:
   m_ObjectHideFlags: 0
