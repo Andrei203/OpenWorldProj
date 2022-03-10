@@ -7,8 +7,14 @@ public class NPCProjectile : MonoBehaviour
 {
     public float speed = 10.0f;
     public int damage = 2;
+
+    [SerializeField] private float deathtime = 3.5f;
     //public GameObject playerPB;
-    
+
+    private void Start()
+    {
+        Destroy(this.gameObject, deathtime);
+    }
 
     // Update is called once per frame
     void Update()

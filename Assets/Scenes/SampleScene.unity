@@ -1253,6 +1253,36 @@ MonoBehaviour:
   meshCollider: {fileID: 129996705}
   file: kojima_2-7.obj
   currentLOD: -1
+--- !u!1 &146732440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 146732441}
+  m_Layer: 0
+  m_Name: Firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &146732441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146732440}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.645}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 973309728}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &158830436
 GameObject:
   m_ObjectHideFlags: 0
@@ -4842,8 +4872,9 @@ Transform:
   m_GameObject: {fileID: 973309724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 518, z: 12863}
-  m_LocalScale: {x: 500, y: 500, z: 500}
-  m_Children: []
+  m_LocalScale: {x: 250, y: 250, z: 250}
+  m_Children:
+  - {fileID: 146732441}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4861,7 +4892,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1630318346002394}
   chaseRange: 12500
-  followSpeed: 0
+  followSpeed: 150
+  firePoint: {fileID: 146732441}
   bulletPB: {fileID: 1421233883484748358, guid: e712abb8b86788d4caffb3cc3c07e906, type: 3}
 --- !u!1 &973723180
 GameObject:
@@ -12343,7 +12375,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411131078894511}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 9, z: -37}
+  m_LocalPosition: {x: 0, y: 9, z: -37.00049}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4563114434157628}
