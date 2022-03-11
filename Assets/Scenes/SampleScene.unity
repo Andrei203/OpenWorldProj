@@ -7998,7 +7998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 179897974}
-  score: 0
+  scoreToWin: 3
   collectScoreSound: {fileID: 1650171360}
   GameOverScreen: {fileID: 455928048}
 --- !u!114 &1345809526
@@ -9269,7 +9269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 179897974}
-  score: 0
+  scoreToWin: 3
   collectScoreSound: {fileID: 1650171360}
   GameOverScreen: {fileID: 455928048}
 --- !u!1 &1597225698
@@ -9629,7 +9629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1641551172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11362,7 +11362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 179897974}
-  score: 0
+  scoreToWin: 3
   collectScoreSound: {fileID: 1650171360}
   GameOverScreen: {fileID: 455928048}
 --- !u!114 &1830688760
@@ -13962,6 +13962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 4
   healthText: {fileID: 1838952452}
+  score: 0
 --- !u!65 &1630318346002396
 BoxCollider:
   m_ObjectHideFlags: 0

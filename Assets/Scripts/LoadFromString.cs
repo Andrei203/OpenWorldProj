@@ -50,6 +50,8 @@ public class LoadFromString : MonoBehaviour
         string line;
         List<Vector3> vertices = new List<Vector3>();
         List<int> indices = new List<int>();
+        List<Vector2> uvs = new List<Vector2>();
+        List<int> triUVIndexes = new List<int>();
         while ((line = reader.ReadLine()) != null)
         {
             string[] split = line.Split(' ');
@@ -61,17 +63,37 @@ public class LoadFromString : MonoBehaviour
                     break;
                 case "f": // Index
                     List<int> theseIndexes = new List<int>();
+                    List<int> theseUVIndexes = new List<int>();
                     for (int i = 1; i < split.Length; i++)
                     {
-                        theseIndexes.Add(int.Parse(split[i].Split('/')[0]) - 1);
+                        string[] items = split[i].Split('/');
+                        theseIndexes.Add(int.Parse(items[0]) - 1);
+                        theseUVIndexes.Add(int.Parse(items[1]) - 1);
                     }
                     indices.AddRange(Triangulate(theseIndexes));
+                    triUVIndexes.AddRange(theseUVIndexes);
+                    break;
+                case "vt": // UV
+                    uvs.Add(new Vector2(float.Parse(split[1]), 1.0F - float.Parse(split[2])));
                     break;
             }
         }
+
+        Dictionary<int, Vector2> uvFinal = new Dictionary<int, Vector2>();
+        for (int i = 0; i < indices.Count; i++)
+        {
+            uvFinal[indices[i]] = uvs[triUVIndexes[i%triUVIndexes.Count]];
+        }
+        uvs.Clear();
+      /*  for (int i = 0; i < vertices.Count; i++)
+        {
+            uvs.Add(uvFinal[i]);
+        }*/
+
         Mesh mesh = new Mesh();
         mesh.vertices = vertices.ToArray();
         mesh.triangles = indices.ToArray();
+        //mesh.uv = uvs.ToArray();
         mesh.RecalculateNormals();
         meshFilter.sharedMesh = mesh;
         meshCollider.sharedMesh = mesh;
