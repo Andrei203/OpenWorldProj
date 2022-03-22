@@ -9,7 +9,7 @@ public class LoadFromString : MonoBehaviour
     public MeshFilter meshFilter;
     public MeshCollider meshCollider;
     public string file = "cow.obj";
-    
+    public LoadObjects ObjectLoader;
     public int currentLOD = -1;
     /*private void Start()
     {
@@ -57,6 +57,7 @@ public class LoadFromString : MonoBehaviour
             string[] split = line.Split(' ');
             switch (split[0])
             {
+                
                 case "v": // Vertex
                     Vector3 vertex = new Vector3(float.Parse(split[1]), float.Parse(split[2]), float.Parse(split[3]));
                     vertices.Add(vertex);
@@ -98,6 +99,8 @@ public class LoadFromString : MonoBehaviour
         meshFilter.sharedMesh = mesh;
         meshCollider.sharedMesh = mesh;
         reader.Close();
+        
+        if (ObjectLoader != null) ObjectLoader.LoadFromFile();
     }
 
     [ContextMenu("Unload OBJ")]

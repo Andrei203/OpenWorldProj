@@ -15,9 +15,15 @@ public class KojimaAutoChunk : MonoBehaviour
         {
             for (int y = 0; y < numChunks.y; y++)
             {
+                Debug.Log(prefab);
                 LoadFromString go = Instantiate(prefab, new Vector3(y * chunkSize.x, 0.0F, x * chunkSize.y), Quaternion.identity,
                     transform);
                 go.file = "kojima_" + x + "-" + y + ".obj";
+                LoadObjects lo = go.GetComponent<LoadObjects>();
+                if (lo != null)
+                {
+                    lo.file = "objects_" + x + "-" + y + ".txt";
+                }
             }
         }
     }
