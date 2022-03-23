@@ -108,6 +108,7 @@ public class LoadFromString : MonoBehaviour
     {
         //Mesh mesh = loadTo.sharedMesh;
         meshFilter.sharedMesh = null;
+        ObjectLoader.UnloadObj();
         //Resources.UnloadAsset(mesh);
         meshCollider.sharedMesh = null;
     }

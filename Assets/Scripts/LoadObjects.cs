@@ -84,4 +84,18 @@ public class LoadObjects : MonoBehaviour
             }
         }
     }
+
+    public void UnloadObj()
+    {
+        List<Transform> toDestroy = new List<Transform>();
+        foreach (Transform child in transform)
+        {
+            toDestroy.Add(child);
+        }
+
+        foreach (Transform destroy in toDestroy)
+        {
+            Destroy(destroy.gameObject);
+        }
+    }
 }
