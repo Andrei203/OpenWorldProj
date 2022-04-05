@@ -6977,7 +6977,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973309724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 518, z: 12863}
+  m_LocalPosition: {x: 0, y: 518, z: 14453}
   m_LocalScale: {x: 250, y: 250, z: 250}
   m_Children:
   - {fileID: 146732441}
@@ -6997,8 +6997,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1630318346002394}
-  chaseRange: 11500
-  followSpeed: 185
+  chaseRange: 12500
+  followSpeed: 170
   firePoint: {fileID: 146732441}
   bulletPB: {fileID: 1421233883484748358, guid: e712abb8b86788d4caffb3cc3c07e906, type: 3}
 --- !u!1 &981250485

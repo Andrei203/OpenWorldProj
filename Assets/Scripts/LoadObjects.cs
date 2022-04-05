@@ -18,7 +18,7 @@ public class LoadObjects : MonoBehaviour
     public string file = "cow.obj";
     public List<ObjectInstance> instances = new List<ObjectInstance>();
     private List<GameObject> features = new List<GameObject>();
-
+    #if UNITY_EDITOR
 
     [ContextMenu("Save to file")]
     public void SaveToFile()
@@ -52,7 +52,8 @@ public class LoadObjects : MonoBehaviour
             DestroyImmediate(delete.gameObject);
         }
     }
-    
+    #endif
+
     [ContextMenu("Load from file")]
     public void LoadFromFile()
     {
@@ -75,7 +76,11 @@ public class LoadObjects : MonoBehaviour
                     }
                     else
                     {
+                        #if UNITY_EDITOR
                         go = (GameObject) PrefabUtility.InstantiatePrefab(instance.prefab, transform);
+                        #else
+                        go = (GameObject) Instantiate(instance.prefab, transform);
+                        #endif
                         go.transform.position = vertex;
                     }
                     features.Add(go);
