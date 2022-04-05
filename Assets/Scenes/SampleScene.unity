@@ -6997,8 +6997,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1630318346002394}
-  chaseRange: 12500
-  followSpeed: 165
+  chaseRange: 11500
+  followSpeed: 185
   firePoint: {fileID: 146732441}
   bulletPB: {fileID: 1421233883484748358, guid: e712abb8b86788d4caffb3cc3c07e906, type: 3}
 --- !u!1 &981250485
